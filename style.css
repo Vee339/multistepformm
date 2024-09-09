@@ -1,0 +1,387 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  /* border: 1px solid red; */
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  width: 100%;
+  height: 80px;
+  background: #5d3891;
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+header .header_content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .header_content .logo {
+  height: 30px;
+  font-weight: bold;
+  font-size: 1.8em;
+  letter-spacing: 3px;
+}
+header .header_content .logo span {
+  color: #5d3891;
+  -webkit-text-stroke: 1px #f5f5f5;
+}
+header .header_content nav {
+  width: 400px;
+}
+header .header_content ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+header .header_content ul li a {
+  color: #e8e2e2;
+  text-decoration: none;
+}
+header .header_content ul li a:hover {
+  color: #f5f5f5;
+}
+main {
+  border: 4px solid #5d3891;
+  width: 80%;
+  height: 620px;
+  margin: 50px auto;
+}
+#progress {
+  height: 80px;
+  background: #5d3891;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#progress .step_no {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  color: #989696;
+  border: 1px solid #989696;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 40px;
+}
+#progress .step_no.current {
+  color: #f99417;
+  border: 2px solid #f99417;
+  font-weight: bold;
+}
+#progress .step_no .step {
+  display: block;
+}
+#progress .step_no .checkMark {
+  display: none;
+}
+#progress .step_no .checkMark img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  filter: invert(100%);
+}
+#progress .step_no.completed .step {
+  display: none;
+}
+#progress .step_no.completed .checkMark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#progress .step_no::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 41px;
+  height: 5px;
+  border-top: 1px solid #989696;
+  border-bottom: 1px solid #989696;
+}
+#progress .step_no:last-child::after {
+  width: 0;
+}
+#progress .step_no.completed {
+  background: #f5a903;
+  color: white;
+  border: 1px solid #f5a903;
+}
+#progress .step_no.completed::after {
+  background: #f5a903;
+  border-top: 1px solid #f5a903;
+  border-bottom: 1px solid #f5a903;
+}
+form {
+  height: calc(100% - 80px);
+  padding: 40px;
+}
+
+fieldset.show {
+  display: block;
+  border: none;
+  height: 100%;
+}
+fieldset.hide {
+  display: none;
+}
+fieldset legend {
+  margin-bottom: 30px;
+}
+fieldset .inputs {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+fieldset .inputs.education,
+fieldset .inputs.certifications {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 60px;
+  height: 160px;
+}
+fieldset .inputs .inputBox {
+  width: 40%;
+  height: 80px;
+  position: relative;
+}
+fieldset .inputs .inputBox#address .addressSuggestions {
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 0;
+  width: 100%;
+  border-radius: 3px;
+  background: white;
+  z-index: 1000;
+  box-shadow: 3px 3px 5px rgba(50, 50, 50, 0.151),
+    -3px -3px 5px rgba(50, 50, 50, 0.151);
+}
+fieldset .inputs .inputBox#address .addressSuggestions p {
+  min-height: 40px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-bottom: none;
+  background: white;
+  padding: 10px 0 0 10px;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: visible;
+}
+fieldset .inputs .inputBox#address .addressSuggestions p:last-child {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+}
+fieldset .inputs .inputBox#address .addressSuggestions p:hover {
+  background: #5c5c5c23;
+}
+fieldset .inputs .inputBox#address .addressSuggestions p span {
+  font-size: 0.8em;
+  color: #545454;
+}
+fieldset .inputs.education .inputBox,
+fieldset .inputs.certifications .inputBox {
+  width: 100%;
+}
+fieldset .inputs.education .inputBox.buttons,
+fieldset .inputs.certifications .inputBox.buttons {
+  grid-area: -2/-2/-1/-1;
+  align-self: end;
+  justify-content: end;
+}
+fieldset .inputs.education .inputBox button,
+fieldset .inputs.certifications .inputBox button {
+  width: 70px;
+  height: 30px;
+  color: #f99417;
+  font-weight: bold;
+  background: transparent;
+  border: 2px solid #f99417;
+  /* border-radius: 10px; */
+  cursor: pointer;
+  transition: all 0.2s;
+}
+fieldset .inputs.education .inputBox button:hover,
+fieldset .inputs.certifications .inputBox button:hover {
+  background: #f99417;
+  color: #ffffff;
+}
+
+fieldset .inputs .inputBox label {
+  color: #6c6c6c;
+  position: relative;
+}
+fieldset .inputs .inputBox label span.reqSymbol {
+  color: red;
+  font-size: 20px;
+}
+fieldset .inputs .inputBox input,
+fieldset .inputs .inputBox select {
+  height: 35px;
+  width: 100%;
+  border: 2px solid #6c6c6c;
+  border-radius: 2px;
+  margin-top: 5px;
+  padding: 0 10px;
+  font-size: 1.2rem;
+}
+fieldset .inputs .inputBox.doc {
+  width: 100%;
+  height: 180px;
+}
+fieldset .inputs .inputBox.doc label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  height: 120px;
+  border: 1px solid #6c6c6c;
+  color: #f99417;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+fieldset .inputs .inputBox.doc label i {
+  font-size: 3em;
+  margin-bottom: 5px;
+}
+fieldset .inputs .inputBox.doc label:hover {
+  transform: scale(1.02);
+}
+fieldset .inputs .inputBox.doc input#govtID {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+fieldset .inputs .inputBox input:focus {
+  outline: 3px solid #f99417;
+  border: none;
+}
+
+fieldset .inputs .inputBox.gender {
+  height: 110px;
+  margin-bottom: 50px;
+}
+fieldset .inputs .inputBox.gender label.heading {
+  display: block;
+  margin-bottom: 0;
+  height: 20px;
+}
+fieldset .inputs .inputBox.gender label {
+  display: block;
+  position: relative;
+  margin: 15px 0;
+  min-width: auto;
+  max-width: max-content;
+  cursor: pointer;
+}
+
+fieldset .inputs .inputBox.gender input {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  border: none;
+  outline: none;
+  opacity: 0;
+  position: absolute;
+}
+fieldset .inputs .inputBox.gender span.radio::after {
+  display: inline-block;
+  font-family: "Font Awesome 6 Free";
+  content: "\f111";
+  color: #6c6c6c;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-top: -4px;
+  /* cursor: pointer; */
+}
+fieldset .inputs .inputBox.gender input:checked ~ span::after {
+  content: "\f192";
+  color: #f99417;
+}
+fieldset .inputs .inputBox p.requiredField {
+  position: absolute;
+  top: 80%;
+  left: 30%;
+  width: 180px;
+  padding: 30px 0 5px 5px;
+
+  color: white;
+  background: #f99417;
+  clip-path: polygon(
+    0% 100%,
+    100% 100%,
+    100% 30%,
+    30% 30%,
+    20% 0%,
+    20% 30%,
+    0% 30%
+  );
+  z-index: 100;
+}
+fieldset .buttons {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+fieldset .buttons .button button {
+  height: 40px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+fieldset .buttons .button.prev button {
+  width: 120px;
+  border: 2px solid #f99417;
+  color: #f99417;
+  background: transparent;
+}
+fieldset .buttons .button.next button {
+  width: 80px;
+  background: #f99417;
+  border: none;
+  color: white;
+}
+fieldset#personalInfo .buttons .button.next {
+  margin-left: auto;
+}
+fieldset .button.next button:hover {
+  background: #ff7417;
+}
+fieldset .button.prev button:hover {
+  background: #f99417;
+  color: white;
+  border: none;
+}
+
+ul#password_requirements {
+  margin-left: 40px;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+}
+fieldset p.disclaimer {
+  margin-bottom: 30px;
+  text-indent: 50px;
+}

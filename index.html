@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fill your application</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <script src="main.js" type="text/javascript" defer></script>
+    <script src="countries.js" type="text/javascript" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="header_content">
+        <div class="logo">YOUR<span>BANK</span></div>
+        <nav>
+          <ul>
+            <li><a href="">Checking</a></li>
+            <li><a href="">Loans</a></li>
+            <li><a href="">Investing</a></li>
+            <li><a href="">Savings</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div id="progress">
+        <div class="step_no current">
+          <div class="step">1</div>
+          <div class="checkMark"><img src="check_mark_icon.png" alt="" /></div>
+        </div>
+        <div class="step_no">
+          <div class="step">2</div>
+          <div class="checkMark"><img src="check_mark_icon.png" alt="" /></div>
+        </div>
+        <div class="step_no">
+          <div class="step">3</div>
+          <div class="checkMark"><img src="check_mark_icon.png" alt="" /></div>
+        </div>
+        <div class="step_no">
+          <div class="step">4</div>
+          <div class="checkMark"><img src="check_mark_icon.png" alt="" /></div>
+        </div>
+        <div class="step_no">
+          <div class="step">5</div>
+          <div class="checkMark"><img src="check_mark_icon.png" alt="" /></div>
+        </div>
+        <div class="step_no">
+          <div class="step">6</div>
+          <div class="checkMark"><img src="check_mark_icon.png" alt="" /></div>
+        </div>
+      </div>
+      <form action="" method="get" id="bankingDetails">
+        <fieldset id="personalInfo" class="show current">
+          <legend><h2>Fill your personal information:</h2></legend>
+          <div class="inputs">
+            <div class="inputBox">
+              <label for="firstName" class="required">First Name</label>
+              <input type="text" id="firstName" name="first_name" autofocus required />
+            </div>
+            <div class="inputBox">
+              <label for="lastName" class="required">Last Name</label>
+              <input type="text" id="lastName" name="last_name" required />
+            </div>
+            <div class="inputBox">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input
+                type="date"
+                id="dateOfBirth"
+                name="date_of_birth"
+                max="2024-02-05"
+                pattern="\d{4}-\d{2}-\d{2}"
+              />
+            </div>
+            <div class="inputBox">
+              <label for="age">Age</label>
+              <input type="number" id="age" value="" readonly />
+            </div>
+            <div class="inputBox">
+              <label for="countryOfCitizenship">Country of Citizenship</label>
+              <select id="countryOfCitizenship">
+                <option>Select</option>
+              </select>
+            </div>
+            <div class="inputBox gender">
+              <label class="heading">Gender </label>
+              <label for="female">
+                <input type="radio" id="female" name="gender" />
+                <span class="radio"></span>
+                Female
+              </label>
+              <label for="male">
+                <input type="radio" id="male" name="gender" />
+                <span class="radio"></span>
+                Male
+              </label>
+              <label for="preferNotToSay">
+                <input type="radio" id="preferNotToSay" name="gender" />
+                <span class="radio"></span>
+                Prefer not to say
+              </label>
+            </div>
+            <div class="inputBox">
+              <label for="email" class="required">Personal Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="button next">
+              <button onclick="next(event)">Next</button>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="address&contact" class="hide">
+          <legend><h2>Address & Contact Information:</h2></legend>
+          <div class="inputs">
+            <div class="inputBox" id="address">
+              <label for="streetAddress" class="required">Street Address</label>
+              <input type="text" id="streetAddress" name="street_address" required autofocus/>
+            </div>
+            <div class="inputBox">
+              <label for="city" class="required">City</label>
+              <input type="text" id="city" name="city" required />
+            </div>
+            <div class="inputBox required">
+              <label for="country" class="required">Country</label>
+              <input type="text" id="country" required/>
+            </div>
+            <div class="inputBox">
+              <label for="province" class="required">Province</label>
+              <input type="text" id="province" name="province" required/>
+            </div>
+            <div class="inputBox">
+              <label for="postalCode" class="required">Postal Code</label>
+              <input type="text" id="postalCode" name="postal_code" required/>
+            </div>
+            <div class="inputBox">
+              <label for="phone" class="required">Phone</label>
+              <input type="tel" id="phone" name="phone" required/>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="button prev">
+              <button onclick="prev(event)">Previous</button>
+            </div>
+            <div class="button next">
+              <button onclick="next(event)">Next</button>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset id="qualifications" class="hide">
+          <legend><h2>Education & Certifications</h2></legend>
+          <h3>Education:</h3>
+          <div class="inputs education">
+            <div class="inputBox">
+              <label for="instName">Institution Name</label>
+              <input type="text" id="instName" name="institution_name" />
+            </div>
+            <div class="inputBox">
+              <label for="eduType">Education Type</label>
+              <input type="text" id="eduType" name="education_type" />
+            </div>
+            <div class="inputBox">
+              <label for="major">Major</label>
+              <input type="text" id="major" name="major" />
+            </div>
+            <div class="inputBox">
+              <label for="started">Started</label>
+              <input type="text" id="started" name="started" />
+            </div>
+            <div class="inputBox">
+              <label for="finished">Finished</label>
+              <input type="text" id="finished" name="finished" />
+            </div>
+            <div class="inputBox buttons">
+              <button class="edu">+ Add</button>
+            </div>
+          </div>
+          <h3>Certifications:</h3>
+          <div class="inputs certifications">
+            <div class="inputBox">
+              <label for="instName">Institution Name</label>
+              <input type="text" id="instName" name="institution_name" />
+            </div>
+            <div class="inputBox">
+              <label for="certifi">Certificate</label>
+              <input type="text" id="certifi" name="certificate" />
+            </div>
+            <div class="inputBox">
+              <label for="dateAchieve">Date of Achievement</label>
+              <input type="text" id="dateAchieve" name="date_of_achievement" />
+            </div>
+            <div class="inputBox">
+              <label for="skills">Skills</label>
+              <input type="text" id="skills" name="skills" />
+            </div>
+            <div class="inputBox buttons">
+              <button class="certifi">+ Add</button>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="button prev">
+              <button onclick="prev(event)">Previous</button>
+            </div>
+            <div class="button next">
+              <button onclick="next(event)">Next</button>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="hide">
+          <legend><h2>Upload your documents</h2></legend>
+          <div class="inputs">
+            <div>
+              <p>Upload any of your government ID. This can be:</p>
+              <ul>
+                <li>Passport</li>
+                <li>Driving License</li>
+                <li>Voter Card</li>
+              </ul>
+            </div>
+            <div class="inputBox doc">
+              <label for="govtID">
+                <i class="fa-solid fa-file-import"></i>
+                <p>Upload your file</p>
+              </label>
+              <input type="file" id="govtID" name="govt_id" />
+            </div>
+            <div class="buttons">
+              <div class="button prev">
+                <button onclick="prev(event)">Previous</button>
+              </div>
+              <div class="button next">
+                <button onclick="next(event)">Next</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="hide">
+          <legend><h2>Additional Information</h2></legend>
+          <p class="disclaimer">
+            This information is completely voluteer. You can choose to not
+            disclose it.
+          </p>
+          <div class="inputs addInfo">
+            <div class="inputBox">
+              <label for="sexuality" sexualityHow would you describe your sexual orientention?</label
+              >
+              <select id="sexuality" name="sexuality">
+                <option value="straight">straight/hetrosexual</option>
+                <option value="lesbian">Lesbian</option>
+                <option value="gay">Gay</option>
+                <option value="bisexual">Bisexual</option>
+                <option value="transgender">Transgender</option>
+                <option value="doNotWantToDisclose">
+                  Do not want to disclose
+                </option>
+              </select>
+            </div>
+            <div class="inputBox">
+              <label for="linkedin">Your LinkedIn Presence</label>
+              <input type="text" id="linkedin" name="linkedin_id" />
+            </div>
+            <div class="inputBox">
+              <label for="source">How did you hear about us?</label>
+              <input type="text" id="source" name="source" />
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="hide">
+          <legend><h2>Review your Information</h2></legend>
+        </fieldset>
+      </form>
+    </main>
+
+  </body>
+</html>
